@@ -56,6 +56,18 @@ void Image::set_pixel(int x, int y, const RGBColor& color) {
 }
 
 /**
+ * @brief Set the pixel object at x,y to color
+ *
+ * @param x
+ * @param y
+ * @param color
+ * @param samples
+ */
+void Image::set_pixel(int x, int y, const RGBColor& color, int samples) {
+    this->colors[x][y] = color / samples;
+}
+
+/**
  * @brief Write the image to a ppm file
  *
  * @param path
