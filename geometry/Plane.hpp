@@ -22,21 +22,21 @@ public:
 
     // Constructors.
     Plane();  // set plane to xz-plane.
-    Plane(const Point3D  &pt,
-          const Vector3D &n);  // set point and normal, then normalize.
+    Plane(const Point3D &,
+          const Vector3D &);  // set point and normal, then normalize.
 
     // Copy constructor and assignment operator.
-    Plane(const Plane &object);
-    Plane &operator=(const Plane &rhs);
+    Plane(const Plane &);
+    Plane &operator=(const Plane &);
 
     // Destructor.
-    // virtual ~Plane() = default;
+    virtual ~Plane() = default;
 
     // String representation.
     virtual std::string to_string() const override;
 
     // Ray intersection. Set t and sinfo as per intersection with this object.
-    virtual bool hit(const Ray &ray, float &t, ShadeInfo &s) const override;
+    virtual bool hit(const Ray &, float &, ShadeInfo &) const override;
 
     // Get bounding box.
     virtual BBox getBBox() const override;

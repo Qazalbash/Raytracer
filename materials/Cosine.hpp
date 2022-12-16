@@ -23,20 +23,20 @@ protected:
 public:
 
     // Constructors.
-    Cosine();                           // set color to (0, 0, 0).
-    Cosine(float c);                    // set color to (c, c, c).
-    Cosine(float r, float g, float b);  // set color to (r, g, b).
-    Cosine(const RGBColor &c);          // set color to c.
+    Cosine();                     // set color to (0, 0, 0).
+    Cosine(float);                // set color to (c, c, c).
+    Cosine(float, float, float);  // set color to (r, g, b).
+    Cosine(const RGBColor &);     // set color to c.
 
     // Copy constuctor and assignment operator.
-    Cosine(const Cosine &other);
-    Cosine &operator=(const Cosine &other);
+    Cosine(const Cosine &);
+    Cosine &operator=(const Cosine &);
 
     /* Returned shade is: color * cos \theta.
        \theta is the angle between the normal at the hit pont and the ray.
        Assuming unit vectors, cos \theta = dot product of normal and -ray.dir.
     */
-    virtual RGBColor shade(const ShadeInfo &sinfo) const override;
+    virtual RGBColor shade(const ShadeInfo &) const override;
 };
 
 #endif  // COSINE_HPP

@@ -18,14 +18,14 @@ public:
     Material() = default;  // does nothing.
 
     // Copy constuctor and assignment operator.
-    Material(const Material &other)            = default;
-    Material &operator=(const Material &other) = default;
+    Material(const Material &)            = default;
+    Material &operator=(const Material &) = default;
 
     // Desctructor.
     virtual ~Material() = default;
 
     // Get color.
-    virtual RGBColor shade(const ShadeInfo &sinfo) const = 0;
+    virtual RGBColor shade(const ShadeInfo &) const = 0;
 };
 
 #endif  // MATERIAL_HPP

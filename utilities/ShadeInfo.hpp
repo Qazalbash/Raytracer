@@ -34,10 +34,10 @@ public:
 public:
 
     // Constructor.
-    ShadeInfo(const World &wr);  // set the world.
+    ShadeInfo(const World &);  // set the world.
 
     // Copy constructor.
-    ShadeInfo(const ShadeInfo &sr) = default;
+    ShadeInfo(const ShadeInfo &) = default;
 
     // Destructor.
     ~ShadeInfo() = default;

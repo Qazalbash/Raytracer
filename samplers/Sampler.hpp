@@ -32,17 +32,17 @@ protected:
 public:
 
     // Constructors.
-    Sampler();                                 // initializes members to NULL.
-    Sampler(Camera *c_ptr, ViewPlane *v_ptr);  // set members.
+    Sampler();                       // initializes members to NULL.
+    Sampler(Camera *, ViewPlane *);  // set members.
 
     // Copy constuctor and assignment operator.
-    Sampler(const Sampler &camera)           = default;
-    Sampler &operator=(const Sampler &other) = default;
+    Sampler(const Sampler &)            = default;
+    Sampler &operator=(const Sampler &) = default;
 
     // Get rays corresponding to a pixel in the view plane. px and py are
     // 0-based indexes of the pixel in the view plane, with the origin at the
     // top left of the view plane.
-    virtual std::vector<Ray> get_rays(int px, int py) const = 0;
+    virtual std::vector<Ray> get_rays(int, int) const = 0;
 };
 
 #endif  // SAMPLER_HPP

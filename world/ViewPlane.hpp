@@ -26,8 +26,8 @@ public:
     ViewPlane();  // 640 x 480 view plane at (-320, 240)
 
     // Copy constructor and assignment operator.
-    ViewPlane(const ViewPlane &other)          = default;
-    ViewPlane &operator=(const ViewPlane &rhs) = default;
+    ViewPlane(const ViewPlane &)            = default;
+    ViewPlane &operator=(const ViewPlane &) = default;
 
     // Get/set resolution.
     int  get_hres() const;

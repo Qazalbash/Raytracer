@@ -19,16 +19,15 @@ protected:
 public:
 
     // Constructors.
-    Anti_Alias_Sampler() = default;  // initializes members to NULL.
-    Anti_Alias_Sampler(Camera *c_ptr, ViewPlane *v_ptr);  // set members.
+    Anti_Alias_Sampler() = default;             // initializes members to NULL.
+    Anti_Alias_Sampler(Camera *, ViewPlane *);  // set members.
 
     // Copy constuctor and assignment operator.
-    Anti_Alias_Sampler(const Anti_Alias_Sampler &camera);
-    Anti_Alias_Sampler &operator=(const Anti_Alias_Sampler &other);
+    Anti_Alias_Sampler(const Anti_Alias_Sampler &);
+    Anti_Alias_Sampler &operator=(const Anti_Alias_Sampler &);
 
     // Shoot a ray of weight 1 through the center of the pixel.
     std::vector<Ray> get_rays(int px, int py) const override;
-    // std::vector<std::vector<Ray>> get_rays_1(int px, int py) const override;
 };
 
 #endif  // SIMPLE_HPP

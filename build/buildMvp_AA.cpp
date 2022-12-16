@@ -11,27 +11,15 @@
 
 void World::build(void) {
     // View plane  .
-    int n = 10;
-    vplane.top_left.x = -n;
-    vplane.top_left.y = n;
-    vplane.top_left.z = 10;
+    int n                 = 10;
+    vplane.top_left.x     = -n;
+    vplane.top_left.y     = n;
+    vplane.top_left.z     = 10;
     vplane.bottom_right.x = n;
     vplane.bottom_right.y = -n;
     vplane.bottom_right.z = 10;
-    vplane.hres = 400;
-    vplane.vres = 400;
-
-    // colors
-    RGBColor yellow(1, 1, 0);             // yellow
-    RGBColor brown(0.71, 0.40, 0.16);     // brown
-    RGBColor darkGreen(0.0, 0.41, 0.41);  // darkGreen
-    RGBColor orange(1, 0.75, 0);          // orange
-    RGBColor green(0, 0.6, 0.3);          // green
-    RGBColor lightGreen(0.65, 1, 0.30);   // light green
-    RGBColor darkYellow(0.61, 0.61, 0);   // dark yellow
-    RGBColor lightPurple(0.65, 0.3, 1);   // light purple
-    RGBColor darkPurple(0.5, 0, 1);       // dark purple
-    RGBColor grey(0.3, 0.35, 0.3);        // grey
+    vplane.hres           = 400;
+    vplane.vres           = 400;
 
     // Background color.
     bg_color = grey;

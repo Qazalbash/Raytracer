@@ -24,8 +24,8 @@ public:
              const Point3D &);  // set vertices.
 
     // Copy constructor and assignment operator.
-    Triangle(const Triangle &object);
-    Triangle &operator=(const Triangle &rhs);
+    Triangle(const Triangle &);
+    Triangle &operator=(const Triangle &);
 
     // Destructor.
     virtual ~Triangle() = default;
@@ -33,7 +33,7 @@ public:
     // String representation.
     std::string to_string() const override;
     // Ray intersection. Set t and sinfo as per intersection with this object.
-    virtual bool hit(const Ray &ray, float &t, ShadeInfo &s) const override;
+    virtual bool hit(const Ray &, float &, ShadeInfo &) const override;
 
     // Get bounding box.
     virtual BBox getBBox() const override;

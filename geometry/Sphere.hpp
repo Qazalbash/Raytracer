@@ -20,12 +20,12 @@ protected:
 public:
 
     // Constructors.
-    Sphere();  // sphere at origin with radius 0.
-    Sphere(const Point3D &center, float radius);  // set center and radius,
+    Sphere();                        // sphere at origin with radius 0.
+    Sphere(const Point3D &, float);  // set center and radius,
 
     // Copy constructor and assignment operator.
-    Sphere(const Sphere &object);
-    Sphere &operator=(const Sphere &rhs);
+    Sphere(const Sphere &);
+    Sphere &operator=(const Sphere &);
 
     // Destructor.
     virtual ~Sphere() = default;
@@ -34,7 +34,7 @@ public:
     std::string to_string() const override;
 
     // Ray intersection. Set t and sinfo as per intersection with this object.
-    virtual bool hit(const Ray &ray, float &tmin, ShadeInfo &sr) const override;
+    virtual bool hit(const Ray &, float &, ShadeInfo &) const override;
 
     // Get bounding box.
     virtual BBox getBBox() const override;

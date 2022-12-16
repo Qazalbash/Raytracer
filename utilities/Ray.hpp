@@ -21,12 +21,12 @@ public:
 
     // Constructors.
     Ray();  // set origin and dir to (0, 0, 0), w to 1.
-    Ray(const Point3D  &origin,
-        const Vector3D &dir);  // set origin, dir; w is 1.
+    Ray(const Point3D &,
+        const Vector3D &);  // set origin, dir; w is 1.
 
     // Copy constructor and assignment operator.
-    Ray(const Ray &ray)            = default;
-    Ray &operator=(const Ray &rhs) = default;
+    Ray(const Ray &)            = default;
+    Ray &operator=(const Ray &) = default;
 
     // Destructor.
     ~Ray() = default;

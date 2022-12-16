@@ -25,12 +25,12 @@ public:
 public:
 
     // Constructors.
-    BBox() = default;                              // both points at origin.
-    BBox(const Point3D& min, const Point3D& max);  // set points.
+    BBox() = default;                      // both points at origin.
+    BBox(const Point3D&, const Point3D&);  // set points.
 
     // Copy constructor and assignment operator.
-    BBox(const BBox& b)              = default;
-    BBox& operator=(const BBox& rhs) = default;
+    BBox(const BBox&)            = default;
+    BBox& operator=(const BBox&) = default;
 
     // Destructor.
     ~BBox() = default;
@@ -39,18 +39,18 @@ public:
     std::string to_string() const;
 
     // Does ray hit bbox? If so, set entering and leaving t values for ray.
-    bool hit(const Ray& ray, float& t_enter, float& t_exit) const;
+    bool hit(const Ray&, float&, float&) const;
 
     // Extend this bbox, if necessary, to include g or b.
-    void extend(Geometry* g);
-    void extend(const BBox& b);
+    void extend(Geometry*);
+    void extend(const BBox&);
 
     // Does this BBox contain p? True even when p lies on a boundary.
-    bool contains(const Point3D& p);
+    bool contains(const Point3D&);
 
     // Does this BBox overlap with g or b?
-    bool overlaps(Geometry* g);
-    bool overlaps(const BBox& b);
+    bool overlaps(Geometry*);
+    bool overlaps(const BBox&);
 };
 
 #define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
@@ -63,4 +63,5 @@ inline float max_element(float a, float b, float c) {
 inline float min_element(float a, float b, float c) {
     return MIN(MIN(a, b), c);
 }
+
 #endif  // BBOX_HPP

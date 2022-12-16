@@ -21,17 +21,17 @@ protected:
 public:
 
     // Constructors.
-    Perspective();                           // set pos to origin.
-    Perspective(float c);                    // set pos to (c, c, c).
-    Perspective(float x, float y, float z);  // set pos to (x, y, z)
-    Perspective(const Point3D &pt);          // set pos parallel to pt.
+    Perspective();                     // set pos to origin.
+    Perspective(float);                // set pos to (c, c, c).
+    Perspective(float, float, float);  // set pos to (x, y, z)
+    Perspective(const Point3D &);      // set pos parallel to pt.
 
     // Copy constuctor and assignment operator.
-    Perspective(const Perspective &camera);
-    Perspective &operator=(const Perspective &other);
+    Perspective(const Perspective &);
+    Perspective &operator=(const Perspective &);
 
     // Get direction of projection for a point.
-    virtual Vector3D get_direction(const Point3D &p) const;
+    virtual Vector3D get_direction(const Point3D &) const;
 };
 
 #endif  // PERSPECTIVE_HPP

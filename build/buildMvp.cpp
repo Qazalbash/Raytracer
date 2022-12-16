@@ -21,18 +21,6 @@ void World::build(void) {
     vplane.hres           = 400;
     vplane.vres           = 400;
 
-    // colors
-    RGBColor yellow(1, 1, 0);             // yellow
-    RGBColor brown(0.71, 0.40, 0.16);     // brown
-    RGBColor darkGreen(0.0, 0.41, 0.41);  // darkGreen
-    RGBColor orange(1, 0.75, 0);          // orange
-    RGBColor green(0, 0.6, 0.3);          // green
-    RGBColor lightGreen(0.65, 1, 0.30);   // light green
-    RGBColor darkYellow(0.61, 0.61, 0);   // dark yellow
-    RGBColor lightPurple(0.65, 0.3, 1);   // light purple
-    RGBColor darkPurple(0.5, 0, 1);       // dark purple
-    RGBColor grey(0.3, 0.35, 0.3);        // grey
-
     // Background color.
     bg_color = grey;
 

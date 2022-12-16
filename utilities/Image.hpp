@@ -27,18 +27,18 @@ private:
 public:
 
     // Constructors.
-    Image(int hres, int vres);   // initialize blank image of given size.
-    Image(const ViewPlane &vp);  // initialize blank image with size of vp.
+    Image(int, int);           // initialize blank image of given size.
+    Image(const ViewPlane &);  // initialize blank image with size of vp.
 
     // Destructor.
     ~Image();  // free memory.
 
     // Set pixel color. Convert to integer values.
-    void set_pixel(int x, int y, const RGBColor &color);
-    void set_pixel(int x, int y, const RGBColor &color, int samples);
+    void set_pixel(int, int, const RGBColor &);
+    void set_pixel(int, int, const RGBColor &, int);
 
     // Write image to file in PPM format.
-    void write_ppm(std::string path) const;
+    void write_ppm(std::string) const;
 };
 
 #endif  // IMAGE_HPP

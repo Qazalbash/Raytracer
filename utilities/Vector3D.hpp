@@ -20,16 +20,16 @@ public:
 public:
 
     // Constructors.
-    Vector3D();                                 // set vector to (0, 0, 0).
-    Vector3D(double c);                         // set vector to (c, c, c).
-    Vector3D(double _x, double _y, double _z);  // set vector to (_x, _y, _z).
-    Vector3D(const Point3D &p);                 // construct from a point.
+    Vector3D();                        // set vector to (0, 0, 0).
+    Vector3D(double);                  // set vector to (c, c, c).
+    Vector3D(double, double, double);  // set vector to (_x, _y, _z).
+    Vector3D(const Point3D &);         // construct from a point.
 
     // Copy constructor and assignment operator.
-    Vector3D(const Vector3D &v)              = default;
-    Vector3D &operator=(const Vector3D &rhs) = default;
+    Vector3D(const Vector3D &)            = default;
+    Vector3D &operator=(const Vector3D &) = default;
     // Assign vector from other entitites.
-    Vector3D &operator=(const Point3D &rhs);  // from a point.
+    Vector3D &operator=(const Point3D &);  // from a point.
 
     // Destructor.
     ~Vector3D() = default;
@@ -38,15 +38,15 @@ public:
     std::string to_string() const;
 
     // Arithmetic.
-    Vector3D  operator-() const;                   // unary minus
-    Vector3D  operator+(const Vector3D &v) const;  // addition.
-    Vector3D &operator+=(const Vector3D &v);       // compound addition.
-    Vector3D  operator-(const Vector3D &v) const;  // subtraction.
-    Vector3D &operator-=(const Vector3D &v);       // compound subtraction.
+    Vector3D  operator-() const;                  // unary minus
+    Vector3D  operator+(const Vector3D &) const;  // addition.
+    Vector3D &operator+=(const Vector3D &);       // compound addition.
+    Vector3D  operator-(const Vector3D &) const;  // subtraction.
+    Vector3D &operator-=(const Vector3D &);       // compound subtraction.
 
     // Scaling.
-    Vector3D operator*(const double a) const;
-    Vector3D operator/(const double a) const;
+    Vector3D operator*(const double) const;
+    Vector3D operator/(const double) const;
     void     normalize();  // nomalize - convert to a unit vector.
 
     // Length.
@@ -54,11 +54,11 @@ public:
     double len_squared() const;  // square of the length.
 
     // Vector products.
-    double   operator*(const Vector3D &b) const;  // dot product.
-    Vector3D operator^(const Vector3D &v) const;  // cross product.
+    double   operator*(const Vector3D &) const;  // dot product.
+    Vector3D operator^(const Vector3D &) const;  // cross product.
 };
 
 // Scaling.
-Vector3D operator*(const double a, const Vector3D &v);
+Vector3D operator*(const double, const Vector3D &);
 
 #endif  // VECTOR_HPP

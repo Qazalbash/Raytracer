@@ -43,8 +43,8 @@ public:
     ~World();  // free memory.
 
     // Add to the scene.
-    void add_geometry(Geometry *geom_ptr);
-    void set_camera(Camera *c_ptr);
+    void add_geometry(Geometry *);
+    void set_camera(Camera *);
 
     // Build scene - add all geometry, materials, lights, viewplane, camera,
     // samplers, and acceleration structures
@@ -52,7 +52,7 @@ public:
 
     // Returns appropriate shading information corresponding to intersection of
     // the ray with the scene geometry.
-    ShadeInfo hit_objects(const Ray &ray);
+    ShadeInfo hit_objects(const Ray &);
 };
 
 #endif  // WORLD_HPP

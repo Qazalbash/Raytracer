@@ -31,8 +31,8 @@ public:
     Geometry();  // sets material_ptr to NULL.
 
     // Copy constructor and assignment operator.
-    Geometry(const Geometry &object)         = default;
-    Geometry &operator=(const Geometry &rhs) = default;
+    Geometry(const Geometry &)            = default;
+    Geometry &operator=(const Geometry &) = default;
 
     // Destructor.
     virtual ~Geometry() = default;
@@ -42,10 +42,10 @@ public:
 
     // Get/set material.
     Material *get_material() const;
-    void      set_material(Material *mPtr);
+    void      set_material(Material *);
 
     // Ray intersection. Set t and sinfo as per intersection with this object.
-    virtual bool hit(const Ray &ray, float &t, ShadeInfo &sinfo) const = 0;
+    virtual bool hit(const Ray &, float &, ShadeInfo &) const = 0;
 
     // Get bounding box.
     virtual BBox getBBox() const = 0;
