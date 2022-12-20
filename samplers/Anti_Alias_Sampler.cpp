@@ -1,7 +1,7 @@
 #include "Anti_Alias_Sampler.hpp"
 
 // Returns a random real in [0,1).
-inline double random_double() { return rand() / (RAND_MAX + 1.0); }
+inline const double random_double() { return rand() / (RAND_MAX + 1.0); }
 
 /**
  * @brief Construct a new Simple::Simple object
@@ -46,21 +46,24 @@ Anti_Alias_Sampler &Anti_Alias_Sampler::operator=(
  * @return std::vector<Ray>
  */
 std::vector<Ray> Anti_Alias_Sampler::get_rays(int px, int py) const {
+    Ray              r;
+    float            pixelH, pixelW;
+    Point3D          point;
+    Vector3D         dir;
     std::vector<Ray> ray;
+
     for (int i = 0; i < 100; i++) {
-        float pixelH =
-                  (viewplane_ptr->bottom_right.y - viewplane_ptr->top_left.y) /
-                  viewplane_ptr->vres,
-              pixelW =
-                  (viewplane_ptr->bottom_right.x - viewplane_ptr->top_left.x) /
-                  viewplane_ptr->hres;
-        Point3D point;
+        pixelH = (viewplane_ptr->bottom_right.y - viewplane_ptr->top_left.y) /
+                 viewplane_ptr->vres,
+        pixelW = (viewplane_ptr->bottom_right.x - viewplane_ptr->top_left.x) /
+                 viewplane_ptr->hres;
 
         point.x = (px + random_double()) * pixelW + viewplane_ptr->top_left.x;
         point.y = (py + random_double()) * pixelH + viewplane_ptr->top_left.y;
         point.z = viewplane_ptr->top_left.z;
-        Vector3D dir = camera_ptr->get_direction(point);
-        Ray      r(point, dir);
+
+        dir = camera_ptr->get_direction(point);
+        r   = {point, dir};
         ray.push_back(r);
     }
 

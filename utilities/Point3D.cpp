@@ -4,7 +4,7 @@
 #include <iostream>
 
 /**
- * @brief Construct a new Point 3 D:: Point 3 D object
+ * @brief Construct a new Point3D::Point3D object
  *
  */
 Point3D::Point3D() : x(0), y(0), z(0) {}

@@ -55,9 +55,5 @@ std::vector<Ray> Simple::get_rays(int px, int py) const {
 
     Vector3D dir = camera_ptr->get_direction(point);
 
-    Ray              r(point, dir);
-    std::vector<Ray> ray;
-    ray.push_back(r);
-    return ray;
-    // return {Ray(point, dir)};
+    return {Ray(point, dir)};
 }

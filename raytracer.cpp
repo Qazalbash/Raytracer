@@ -1,4 +1,4 @@
-#define MT 0  // 1 for multi threading, 0 for single threading
+#define MT 1  // 1 for multi threading, 0 for single threading
 
 #include <execution>
 #include <iostream>
@@ -16,13 +16,15 @@ int main(int argc, char **argv) {
     World world;
     world.build();
 
-    Sampler         *sampler   = world.sampler_ptr;
-    ViewPlane       &viewplane = world.vplane;
+    Sampler   *sampler   = world.sampler_ptr;
+    ViewPlane &viewplane = world.vplane;
+
     Image            image(viewplane);
     std::vector<Ray> rays;
     RGBColor         pixel_color(0);
 
 #if MT
+    std::cout << "Multithreaded" << std::endl;
     std::vector<int> iterOut;        // iterator for multi threading
     iterOut.resize(viewplane.hres);  // iterator resized
     for (int i = 0; i < viewplane.hres; i++)
@@ -48,6 +50,7 @@ int main(int argc, char **argv) {
                       }
                   });
 #else
+    std::cout << "Singlethreaded" << std::endl;
     for (int x = 0; x < viewplane.hres; x++) {
         for (int y = 0; y < viewplane.vres; y++) {
             RGBColor pixel_color(0);
