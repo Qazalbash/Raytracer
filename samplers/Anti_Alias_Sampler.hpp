@@ -12,22 +12,15 @@
 #include "Sampler.hpp"
 
 class Anti_Alias_Sampler : public Sampler {
-protected:
+    public:
 
-    // add members to cache values to avoid recomputation in get_rays().
+        Anti_Alias_Sampler() = default;
+        Anti_Alias_Sampler(Camera *, ViewPlane *);
+        Anti_Alias_Sampler(const Anti_Alias_Sampler &);
 
-public:
+        Anti_Alias_Sampler &operator=(const Anti_Alias_Sampler &);
 
-    // Constructors.
-    Anti_Alias_Sampler() = default;             // initializes members to NULL.
-    Anti_Alias_Sampler(Camera *, ViewPlane *);  // set members.
-
-    // Copy constuctor and assignment operator.
-    Anti_Alias_Sampler(const Anti_Alias_Sampler &);
-    Anti_Alias_Sampler &operator=(const Anti_Alias_Sampler &);
-
-    // Shoot a ray of weight 1 through the center of the pixel.
-    std::vector<Ray> get_rays(int px, int py) const override;
+        std::vector<Ray> get_rays(int px, int py) const override;
 };
 
-#endif  // SIMPLE_HPP
+#endif

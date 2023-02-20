@@ -21,34 +21,26 @@ class Ray;
 class ShadeInfo;
 
 class Geometry {
-protected:
+    protected:
 
-    Material *material_ptr;  // this object's material.
+        Material *material_ptr;
 
-public:
+    public:
 
-    // Constructors.
-    Geometry();  // sets material_ptr to NULL.
+        Geometry();
+        Geometry(const Geometry &)            = default;
+        Geometry &operator=(const Geometry &) = default;
 
-    // Copy constructor and assignment operator.
-    Geometry(const Geometry &)            = default;
-    Geometry &operator=(const Geometry &) = default;
+        virtual ~Geometry() = default;
 
-    // Destructor.
-    virtual ~Geometry() = default;
+        virtual std::string to_string() const = 0;
 
-    // String representation.
-    virtual std::string to_string() const = 0;
+        Material *get_material() const;
+        void      set_material(Material *);
 
-    // Get/set material.
-    Material *get_material() const;
-    void      set_material(Material *);
+        virtual bool hit(const Ray &, float &, ShadeInfo &) const = 0;
 
-    // Ray intersection. Set t and sinfo as per intersection with this object.
-    virtual bool hit(const Ray &, float &, ShadeInfo &) const = 0;
-
-    // Get bounding box.
-    virtual BBox getBBox() const = 0;
+        virtual BBox getBBox() const = 0;
 };
 
-#endif  // GEOMETRY_HPP
+#endif

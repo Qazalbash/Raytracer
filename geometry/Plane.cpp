@@ -6,7 +6,7 @@
  * @brief Construct a new Plane::Plane object
  *
  */
-Plane::Plane() : a(Point3D()), n(Vector3D(0, 1, 0)) {}
+Plane::Plane() : a(Point3D()), n(Vector3D(0.0, 1.0, 0.0)) {}
 
 /**
  * @brief Construct a new Plane::Plane object
@@ -14,9 +14,7 @@ Plane::Plane() : a(Point3D()), n(Vector3D(0, 1, 0)) {}
  * @param pt
  * @param n_
  */
-Plane::Plane(const Point3D& pt, const Vector3D& n_) : a(pt), n(n_) {
-    n.normalize();
-}
+Plane::Plane(const Point3D& pt, const Vector3D& n_) : a(pt), n(n_) { n.normalize(); }
 
 /**
  * @brief Construct a new Plane::Plane object
@@ -32,9 +30,9 @@ Plane::Plane(const Plane& object) : a(object.a), n(object.n) {}
  * @return Plane&
  */
 Plane& Plane::operator=(const Plane& rhs) {
-    a = rhs.a;
-    n = rhs.n;
-    return *this;
+        a = rhs.a;
+        n = rhs.n;
+        return *this;
 }
 
 /**
@@ -43,7 +41,7 @@ Plane& Plane::operator=(const Plane& rhs) {
  * @return std::string
  */
 std::string Plane::to_string() const {
-    return "Plane { a: " + a.to_string() + ", n: " + n.to_string() + " }";
+        return "Plane { a: " + a.to_string() + ", n: " + n.to_string() + " }";
 }
 
 /**
@@ -58,20 +56,20 @@ std::string Plane::to_string() const {
  * @details book listing 3.5
  */
 bool Plane::hit(const Ray& ray, float& tmin, ShadeInfo& sr) const {
-    double t = (a - ray.o) * n / (ray.d * n);
+        double t = (a - ray.o) * n / (ray.d * n);
 
-    if (t <= kEpsilon) return false;
+        if (t <= kEpsilon) return false;
 
-    tmin            = t;
-    sr.ray          = ray;
-    sr.hit          = true;
-    sr.normal       = this->n;
-    sr.material_ptr = this->material_ptr;
-    sr.hit_point    = ray.o + ray.d * tmin;
-    sr.hit_point    = ray.o + t * ray.d;
-    sr.t            = tmin;
+        tmin            = t;
+        sr.ray          = ray;
+        sr.hit          = true;
+        sr.normal       = this->n;
+        sr.material_ptr = this->material_ptr;
+        sr.hit_point    = ray.o + ray.d * tmin;
+        sr.hit_point    = ray.o + t * ray.d;
+        sr.t            = tmin;
 
-    return true;
+        return true;
 }
 
 /**

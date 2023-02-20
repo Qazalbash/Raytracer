@@ -26,33 +26,26 @@ class ShadeInfo;
 class Normal;
 
 class World {
-public:
+    public:
 
-    ViewPlane               vplane;
-    RGBColor                bg_color;
-    std::vector<Geometry *> geometry;
-    Camera                 *camera_ptr;
-    Sampler                *sampler_ptr;
+        ViewPlane               vplane;
+        RGBColor                bg_color;
+        std::vector<Geometry *> geometry;
+        Camera                 *camera_ptr;
+        Sampler                *sampler_ptr;
 
-public:
+    public:
 
-    // Constructors.
-    World();  // initialize members.
+        World();
 
-    // Destructor.
-    ~World();  // free memory.
+        ~World();
 
-    // Add to the scene.
-    void add_geometry(Geometry *);
-    void set_camera(Camera *);
+        void add_geometry(Geometry *);
+        void set_camera(Camera *);
 
-    // Build scene - add all geometry, materials, lights, viewplane, camera,
-    // samplers, and acceleration structures
-    void build();
+        void build();
 
-    // Returns appropriate shading information corresponding to intersection of
-    // the ray with the scene geometry.
-    ShadeInfo hit_objects(const Ray &);
+        ShadeInfo hit_objects(const Ray &);
 };
 
-#endif  // WORLD_HPP
+#endif

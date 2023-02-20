@@ -16,27 +16,21 @@
 #include "Material.hpp"
 
 class Cosine : public Material {
-protected:
+    protected:
 
-    RGBColor color;  // the color of the material.
+        RGBColor color;
 
-public:
+    public:
 
-    // Constructors.
-    Cosine();                     // set color to (0, 0, 0).
-    Cosine(float);                // set color to (c, c, c).
-    Cosine(float, float, float);  // set color to (r, g, b).
-    Cosine(const RGBColor &);     // set color to c.
+        Cosine();
+        Cosine(float);
+        Cosine(float, float, float);
+        Cosine(const RGBColor &);
 
-    // Copy constuctor and assignment operator.
-    Cosine(const Cosine &);
-    Cosine &operator=(const Cosine &);
+        Cosine(const Cosine &);
+        Cosine &operator=(const Cosine &);
 
-    /* Returned shade is: color * cos \theta.
-       \theta is the angle between the normal at the hit pont and the ray.
-       Assuming unit vectors, cos \theta = dot product of normal and -ray.dir.
-    */
-    virtual RGBColor shade(const ShadeInfo &) const override;
+        virtual RGBColor shade(const ShadeInfo &) const override;
 };
 
-#endif  // COSINE_HPP
+#endif

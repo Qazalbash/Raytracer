@@ -13,33 +13,26 @@
 #include "Geometry.hpp"
 
 class Plane : public Geometry {
-protected:
+    protected:
 
-    Point3D  a;  // point on the plane.
-    Vector3D n;  // normal to the plane, store as unit vector.
+        Point3D  a;
+        Vector3D n;
 
-public:
+    public:
 
-    // Constructors.
-    Plane();  // set plane to xz-plane.
-    Plane(const Point3D &,
-          const Vector3D &);  // set point and normal, then normalize.
+        Plane();
+        Plane(const Point3D &, const Vector3D &);
+        Plane(const Plane &);
 
-    // Copy constructor and assignment operator.
-    Plane(const Plane &);
-    Plane &operator=(const Plane &);
+        virtual ~Plane() = default;
 
-    // Destructor.
-    virtual ~Plane() = default;
+        Plane &operator=(const Plane &);
 
-    // String representation.
-    virtual std::string to_string() const override;
+        virtual std::string to_string() const override;
 
-    // Ray intersection. Set t and sinfo as per intersection with this object.
-    virtual bool hit(const Ray &, float &, ShadeInfo &) const override;
+        virtual bool hit(const Ray &, float &, ShadeInfo &) const override;
 
-    // Get bounding box.
-    virtual BBox getBBox() const override;
+        virtual BBox getBBox() const override;
 };
 
-#endif  // PLANE_HPP
+#endif

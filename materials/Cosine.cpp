@@ -45,8 +45,8 @@ Cosine::Cosine(const Cosine &other) { this->color = other.color; }
  * @return Cosine&
  */
 Cosine &Cosine::operator=(const Cosine &other) {
-    this->color = other.color;
-    return *this;
+        this->color = other.color;
+        return *this;
 }
 
 /**
@@ -60,9 +60,9 @@ Cosine &Cosine::operator=(const Cosine &other) {
  * dot product of normal and -ray.dir.
  */
 RGBColor Cosine::shade(const ShadeInfo &sinfo) const {
-    Vector3D a = -sinfo.ray.d;
-    a.normalize();
-    Vector3D b = sinfo.normal;
-    b.normalize();
-    return this->color * (a * b);
+        Vector3D a = -sinfo.ray.d;
+        a.normalize();
+        Vector3D b = sinfo.normal;
+        b.normalize();
+        return this->color * (a * b);
 }

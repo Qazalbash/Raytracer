@@ -13,43 +13,36 @@
 #include <string>
 
 class RGBColor {
-public:
+    public:
 
-    float r, g, b;  // red, green, and blue components in [0,1].
+        float r, g, b;
 
-public:
+    public:
 
-    // Constructors.
-    RGBColor();                     // set color to (0, 0, 0).
-    RGBColor(float);                // set color to (c, c, c).
-    RGBColor(float, float, float);  // set color to (_r, _g, _b).
+        RGBColor();
+        RGBColor(float);
+        RGBColor(float, float, float);
 
-    // Destructor.
-    ~RGBColor() = default;
+        ~RGBColor() = default;
 
-    // Copy constructor and assignment operator.
-    RGBColor(const RGBColor &)            = default;
-    RGBColor &operator=(const RGBColor &) = default;
+        RGBColor(const RGBColor &) = default;
 
-    // String representation.
-    std::string to_string() const;
+        std::string to_string() const;
 
-    // Operations.
-    RGBColor  operator+(const RGBColor &) const;  // addition.
-    RGBColor &operator+=(const RGBColor &);       // compound addition.
-    RGBColor  operator*(const float) const;       // multiplication by a float.
-    RGBColor &operator*=(const float);  // compound multiplication by a float.
-    RGBColor  operator/(const float) const;  // division by a float.
-    RGBColor &operator/=(const float);       // compound division by a float.
+        RGBColor  operator+(const RGBColor &) const;
+        RGBColor &operator+=(const RGBColor &);
+        RGBColor  operator*(const float) const;
+        RGBColor  operator*(const RGBColor &) const;
+        RGBColor &operator*=(const float);
+        RGBColor  operator/(const float) const;
+        RGBColor &operator/=(const float);
+        RGBColor &operator=(const RGBColor &) = default;
+        bool      operator==(const RGBColor &) const;
 
-    RGBColor operator*(
-        const RGBColor &) const;  // component-wise multiplication.
-    bool     operator==(const RGBColor &) const;  // equality.
-    RGBColor powc(float) const;  // raise components to a power.
-    float    average() const;    // the average of the components.
+        RGBColor powc(float) const;
+        float    average() const;
 };
 
-// Multiplication by a float.
 RGBColor operator*(const float, const RGBColor &);
 
-#endif  // RGBCOLOR_HPP
+#endif

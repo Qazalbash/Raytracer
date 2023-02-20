@@ -5,11 +5,11 @@
  *
  */
 ViewPlane::ViewPlane() {
-    top_left     = Point3D(-320, 240, 0);
-    bottom_right = Point3D(top_left.x + hres, top_left.y + vres, 0);
-    normal       = Vector3D(0, 0, -1);
-    hres         = 640;
-    vres         = 480;
+        top_left     = Point3D(-320.0f, 240.0f, 0.0f);
+        bottom_right = Point3D(top_left.x + hres, top_left.y + vres, 0.0f);
+        normal       = Vector3D(0.0, 0.0, -1.0);
+        hres         = 640;
+        vres         = 480;
 }
 
 /**

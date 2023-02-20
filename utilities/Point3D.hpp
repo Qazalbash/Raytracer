@@ -14,44 +14,35 @@
 class Vector3D;
 
 class Point3D {
-public:
+    public:
 
-    float x, y, z;  // the co-ordinates.
+        float x, y, z;
 
-public:
+    public:
 
-    // Constructors.
-    Point3D();                     // set point to (0, 0, 0).
-    Point3D(float);                // set point to (c, c, c).
-    Point3D(float, float, float);  // set point to (x,y,z).
+        Point3D();
+        Point3D(float);
+        Point3D(float, float, float);
+        Point3D(const Point3D &) = default;
 
-    // Destructor.
-    ~Point3D() = default;
+        ~Point3D() = default;
 
-    // Copy constructor and assignment operator.
-    Point3D(const Point3D &)            = default;
-    Point3D &operator=(const Point3D &) = default;
+        std::string to_string() const;
 
-    // String representation.
-    std::string to_string() const;
+        Point3D  operator-() const;
+        Vector3D operator-(const Point3D &) const;
+        Point3D  operator+(const Vector3D &) const;
+        Point3D  operator-(const Vector3D &) const;
+        Point3D  operator*(const float) const;
+        Point3D &operator=(const Point3D &) = default;
 
-    // Arithmetic.
-    Point3D  operator-() const;                  // unary minus.
-    Vector3D operator-(const Point3D &) const;   // vector joining two points
-    Point3D  operator+(const Vector3D &) const;  // addition of a vector
-    Point3D  operator-(const Vector3D &) const;  // subtraction of a vector
-    Point3D  operator*(const float) const;  // scale the point by a factor, s.
-
-    // Distance between points.
-    float d_squared(const Point3D &) const;  // square of distance
-    float distance(const Point3D &) const;   // distance
+        float d_squared(const Point3D &) const;
+        float distance(const Point3D &) const;
 };
 
-// Scale pt by a factor, s.
 Point3D operator*(const float, const Point3D &);
 
-// Compare points.
 Point3D min(const Point3D &, const Point3D &);
 Point3D max(const Point3D &, const Point3D &);
 
-#endif  // POINT3D_HPP
+#endif

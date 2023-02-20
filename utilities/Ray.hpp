@@ -11,28 +11,23 @@
 #include "Vector3D.hpp"
 
 class Ray {
-public:
+    public:
 
-    Point3D  o;  // origin
-    Vector3D d;  // direction, keep normalized.
-    float    w;  // weightage of ray for a particular pixel, default is 1.
+        Point3D  o;
+        Vector3D d;
+        float    w;
 
-public:
+    public:
 
-    // Constructors.
-    Ray();  // set origin and dir to (0, 0, 0), w to 1.
-    Ray(const Point3D &,
-        const Vector3D &);  // set origin, dir; w is 1.
+        Ray();
+        Ray(const Point3D &, const Vector3D &);
+        Ray(const Ray &) = default;
 
-    // Copy constructor and assignment operator.
-    Ray(const Ray &)            = default;
-    Ray &operator=(const Ray &) = default;
+        Ray &operator=(const Ray &) = default;
 
-    // Destructor.
-    ~Ray() = default;
+        ~Ray() = default;
 
-    // String representation.
-    std::string to_string() const;
+        std::string to_string() const;
 };
 
-#endif  // RAY_HPP
+#endif

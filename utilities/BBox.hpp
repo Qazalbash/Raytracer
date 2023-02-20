@@ -16,52 +16,38 @@ class Geometry;
 class Ray;
 
 class BBox {
-public:
+    public:
 
-    // Diagonally opposite points.
-    Point3D pmin;  // min coordinates.
-    Point3D pmax;  // max coordinates.
+        Point3D pmin, pmax;
 
-public:
+    public:
 
-    // Constructors.
-    BBox() = default;                      // both points at origin.
-    BBox(const Point3D&, const Point3D&);  // set points.
+        BBox() = default;
+        BBox(const Point3D&, const Point3D&);
+        BBox(const BBox&) = default;
 
-    // Copy constructor and assignment operator.
-    BBox(const BBox&)            = default;
-    BBox& operator=(const BBox&) = default;
+        ~BBox() = default;
 
-    // Destructor.
-    ~BBox() = default;
+        BBox& operator=(const BBox&) = default;
 
-    // String representation.
-    std::string to_string() const;
+        std::string to_string() const;
 
-    // Does ray hit bbox? If so, set entering and leaving t values for ray.
-    bool hit(const Ray&, float&, float&) const;
+        bool hit(const Ray&, float&, float&) const;
 
-    // Extend this bbox, if necessary, to include g or b.
-    void extend(Geometry*);
-    void extend(const BBox&);
+        void extend(Geometry*);
+        void extend(const BBox&);
 
-    // Does this BBox contain p? True even when p lies on a boundary.
-    bool contains(const Point3D&);
+        bool contains(const Point3D&);
 
-    // Does this BBox overlap with g or b?
-    bool overlaps(Geometry*);
-    bool overlaps(const BBox&);
+        bool overlaps(Geometry*);
+        bool overlaps(const BBox&);
 };
 
 #define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))
 #define MIN(X, Y) (((X) < (Y)) ? (X) : (Y))
 
-inline float max_element(float a, float b, float c) {
-    return MAX(MAX(a, b), c);
-}
+inline float max_element(float a, float b, float c) { return MAX(MAX(a, b), c); }
 
-inline float min_element(float a, float b, float c) {
-    return MIN(MIN(a, b), c);
-}
+inline float min_element(float a, float b, float c) { return MIN(MIN(a, b), c); }
 
-#endif  // BBOX_HPP
+#endif

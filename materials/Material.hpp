@@ -12,20 +12,16 @@ class RGBColor;
 class ShadeInfo;
 
 class Material {
-public:
+    public:
 
-    // Constructors.
-    Material() = default;  // does nothing.
+        Material() = default;
 
-    // Copy constuctor and assignment operator.
-    Material(const Material &)            = default;
-    Material &operator=(const Material &) = default;
+        Material(const Material &)            = default;
+        Material &operator=(const Material &) = default;
 
-    // Desctructor.
-    virtual ~Material() = default;
+        virtual ~Material() = default;
 
-    // Get color.
-    virtual RGBColor shade(const ShadeInfo &) const = 0;
+        virtual RGBColor shade(const ShadeInfo &) const = 0;
 };
 
-#endif  // MATERIAL_HPP
+#endif

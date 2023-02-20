@@ -43,8 +43,8 @@ Perspective::Perspective(const Perspective &camera) : pos(camera.pos) {}
  * @return Perspective&
  */
 Perspective &Perspective::operator=(const Perspective &other) {
-    this->pos = other.pos;
-    return *this;
+        this->pos = other.pos;
+        return *this;
 }
 
 /**
@@ -54,6 +54,6 @@ Perspective &Perspective::operator=(const Perspective &other) {
  * @return Vector3D
  */
 Vector3D Perspective::get_direction(const Point3D &p) const {
-    Vector3D projVec = p - this->pos;
-    return projVec;
+        Vector3D projVec = p - this->pos;
+        return projVec;
 }

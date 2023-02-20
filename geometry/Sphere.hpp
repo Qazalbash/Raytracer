@@ -12,32 +12,26 @@
 #include "Geometry.hpp"
 
 class Sphere : public Geometry {
-protected:
+    protected:
 
-    Point3D c;  // center.
-    float   r;  // radius.
+        Point3D c;
+        float   r;
 
-public:
+    public:
 
-    // Constructors.
-    Sphere();                        // sphere at origin with radius 0.
-    Sphere(const Point3D &, float);  // set center and radius,
+        Sphere();
+        Sphere(const Point3D &, float);
+        Sphere(const Sphere &);
 
-    // Copy constructor and assignment operator.
-    Sphere(const Sphere &);
-    Sphere &operator=(const Sphere &);
+        virtual ~Sphere() = default;
 
-    // Destructor.
-    virtual ~Sphere() = default;
+        Sphere &operator=(const Sphere &);
 
-    // String representation.
-    std::string to_string() const override;
+        std::string to_string() const override;
 
-    // Ray intersection. Set t and sinfo as per intersection with this object.
-    virtual bool hit(const Ray &, float &, ShadeInfo &) const override;
+        virtual bool hit(const Ray &, float &, ShadeInfo &) const override;
 
-    // Get bounding box.
-    virtual BBox getBBox() const override;
+        virtual BBox getBBox() const override;
 };
 
-#endif  // SPHERE_HPP
+#endif
