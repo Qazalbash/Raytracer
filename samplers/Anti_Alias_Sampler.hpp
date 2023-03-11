@@ -12,15 +12,15 @@
 #include "Sampler.hpp"
 
 class Anti_Alias_Sampler : public Sampler {
-    public:
+public:
 
-        Anti_Alias_Sampler() = default;
-        Anti_Alias_Sampler(Camera *, ViewPlane *);
-        Anti_Alias_Sampler(const Anti_Alias_Sampler &);
+    Anti_Alias_Sampler() = default;
+    Anti_Alias_Sampler(Camera *, ViewPlane *);
+    Anti_Alias_Sampler(const Anti_Alias_Sampler &);
 
-        Anti_Alias_Sampler &operator=(const Anti_Alias_Sampler &);
+    Anti_Alias_Sampler &operator=(const Anti_Alias_Sampler &);
 
-        std::vector<Ray> get_rays(int px, int py) const override;
+    std::vector<Ray> get_rays(int px, int py) const override;
 };
 
 #endif

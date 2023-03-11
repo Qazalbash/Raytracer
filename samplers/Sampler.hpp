@@ -24,20 +24,20 @@ class Ray;
 class ViewPlane;
 
 class Sampler {
-    protected:
+protected:
 
-        Camera    *camera_ptr;
-        ViewPlane *viewplane_ptr;
+    Camera    *camera_ptr;
+    ViewPlane *viewplane_ptr;
 
-    public:
+public:
 
-        Sampler();
-        Sampler(Camera *, ViewPlane *);
-        Sampler(const Sampler &) = default;
+    Sampler();
+    Sampler(Camera *, ViewPlane *);
+    Sampler(const Sampler &) = default;
 
-        Sampler &operator=(const Sampler &) = default;
+    Sampler &operator=(const Sampler &) = default;
 
-        virtual std::vector<Ray> get_rays(int, int) const = 0;
+    virtual std::vector<Ray> get_rays(int, int) const = 0;
 };
 
 #endif

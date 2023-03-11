@@ -30,9 +30,9 @@ Plane::Plane(const Plane& object) : a(object.a), n(object.n) {}
  * @return Plane&
  */
 Plane& Plane::operator=(const Plane& rhs) {
-        a = rhs.a;
-        n = rhs.n;
-        return *this;
+    a = rhs.a;
+    n = rhs.n;
+    return *this;
 }
 
 /**
@@ -40,9 +40,7 @@ Plane& Plane::operator=(const Plane& rhs) {
  *
  * @return std::string
  */
-std::string Plane::to_string() const {
-        return "Plane { a: " + a.to_string() + ", n: " + n.to_string() + " }";
-}
+std::string Plane::to_string() const { return "Plane { a: " + a.to_string() + ", n: " + n.to_string() + " }"; }
 
 /**
  * @brief Checks if ray hitted the plane
@@ -56,20 +54,20 @@ std::string Plane::to_string() const {
  * @details book listing 3.5
  */
 bool Plane::hit(const Ray& ray, float& tmin, ShadeInfo& sr) const {
-        double t = (a - ray.o) * n / (ray.d * n);
+    const double t = (a - ray.o) * n / (ray.d * n);
 
-        if (t <= kEpsilon) return false;
+    if (t <= kEpsilon) return false;
 
-        tmin            = t;
-        sr.ray          = ray;
-        sr.hit          = true;
-        sr.normal       = this->n;
-        sr.material_ptr = this->material_ptr;
-        sr.hit_point    = ray.o + ray.d * tmin;
-        sr.hit_point    = ray.o + t * ray.d;
-        sr.t            = tmin;
+    tmin            = t;
+    sr.ray          = ray;
+    sr.hit          = true;
+    sr.normal       = this->n;
+    sr.material_ptr = this->material_ptr;
+    sr.hit_point    = ray.o + ray.d * tmin;
+    sr.hit_point    = ray.o + t * ray.d;
+    sr.t            = tmin;
 
-        return true;
+    return true;
 }
 
 /**

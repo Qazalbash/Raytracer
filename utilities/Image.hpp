@@ -19,22 +19,22 @@ class RGBColor;
 class ViewPlane;
 
 class Image {
-    public:
+public:
 
-        Image(int, int);
-        Image(const ViewPlane &);
+    Image(const size_t, const size_t);
+    Image(const ViewPlane &);
 
-        ~Image();
+    ~Image();
 
-        void set_pixel(int, int, const RGBColor &);
-        void set_pixel(int, int, const RGBColor &, int);
+    void set_pixel(const size_t, const size_t, const RGBColor &);
+    void set_pixel(const size_t, const size_t, const RGBColor &, const int);
 
-        void write_ppm(std::string) const;
+    void write_ppm(const std::string) const;
 
-    private:
+private:
 
-        int        hres, vres;
-        RGBColor **colors;
+    size_t     hres, vres;
+    RGBColor **colors;
 };
 
 #endif

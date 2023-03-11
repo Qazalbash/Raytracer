@@ -12,16 +12,16 @@ class Point3D;
 class Vector3D;
 
 class Camera {
-    public:
+public:
 
-        Camera() = default;
+    Camera() = default;
 
-        Camera(const Camera &)            = default;
-        Camera &operator=(const Camera &) = default;
+    Camera(const Camera &)            = default;
+    Camera &operator=(const Camera &) = default;
 
-        virtual ~Camera() = default;
+    virtual ~Camera() = default;
 
-        virtual Vector3D get_direction(const Point3D &) const = 0;
+    virtual Vector3D get_direction(const Point3D &) const = 0;
 };
 
 #endif

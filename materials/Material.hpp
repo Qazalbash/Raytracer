@@ -12,16 +12,16 @@ class RGBColor;
 class ShadeInfo;
 
 class Material {
-    public:
+public:
 
-        Material() = default;
+    Material() = default;
 
-        Material(const Material &)            = default;
-        Material &operator=(const Material &) = default;
+    Material(const Material &)            = default;
+    Material &operator=(const Material &) = default;
 
-        virtual ~Material() = default;
+    virtual ~Material() = default;
 
-        virtual RGBColor shade(const ShadeInfo &) const = 0;
+    virtual RGBColor shade(const ShadeInfo &) const = 0;
 };
 
 #endif

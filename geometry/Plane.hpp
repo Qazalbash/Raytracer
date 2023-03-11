@@ -13,26 +13,26 @@
 #include "Geometry.hpp"
 
 class Plane : public Geometry {
-    protected:
+protected:
 
-        Point3D  a;
-        Vector3D n;
+    Point3D  a;
+    Vector3D n;
 
-    public:
+public:
 
-        Plane();
-        Plane(const Point3D &, const Vector3D &);
-        Plane(const Plane &);
+    Plane();
+    Plane(const Point3D &, const Vector3D &);
+    Plane(const Plane &);
 
-        virtual ~Plane() = default;
+    virtual ~Plane() = default;
 
-        Plane &operator=(const Plane &);
+    Plane &operator=(const Plane &);
 
-        virtual std::string to_string() const override;
+    virtual std::string to_string() const override;
 
-        virtual bool hit(const Ray &, float &, ShadeInfo &) const override;
+    virtual bool hit(const Ray &, float &, ShadeInfo &) const override;
 
-        virtual BBox getBBox() const override;
+    virtual BBox getBBox() const override;
 };
 
 #endif

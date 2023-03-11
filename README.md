@@ -21,4 +21,6 @@ make HWA
 
 ## Output
 
-[Output](scene.ppm)
+<p align="center">
+  <img src="scene.png" width="400" height="400" />
+</p>

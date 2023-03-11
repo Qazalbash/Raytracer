@@ -12,26 +12,26 @@
 #include "Geometry.hpp"
 
 class Sphere : public Geometry {
-    protected:
+protected:
 
-        Point3D c;
-        float   r;
+    Point3D c;
+    float   r;
 
-    public:
+public:
 
-        Sphere();
-        Sphere(const Point3D &, float);
-        Sphere(const Sphere &);
+    Sphere();
+    Sphere(const Point3D &, float);
+    Sphere(const Sphere &);
 
-        virtual ~Sphere() = default;
+    virtual ~Sphere() = default;
 
-        Sphere &operator=(const Sphere &);
+    Sphere &operator=(const Sphere &);
 
-        std::string to_string() const override;
+    std::string to_string() const override;
 
-        virtual bool hit(const Ray &, float &, ShadeInfo &) const override;
+    virtual bool hit(const Ray &, float &, ShadeInfo &) const override;
 
-        virtual BBox getBBox() const override;
+    virtual BBox getBBox() const override;
 };
 
 #endif

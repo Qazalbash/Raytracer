@@ -16,31 +16,28 @@ class Geometry;
 class Ray;
 
 class BBox {
-    public:
+public:
 
-        Point3D pmin, pmax;
+    Point3D pmin, pmax;
 
-    public:
+public:
 
-        BBox() = default;
-        BBox(const Point3D&, const Point3D&);
-        BBox(const BBox&) = default;
+    BBox() = default;
+    BBox(const Point3D&, const Point3D&);
+    BBox(const BBox&) = default;
 
-        ~BBox() = default;
+    ~BBox() = default;
 
-        BBox& operator=(const BBox&) = default;
+    BBox& operator=(const BBox&) = default;
 
-        std::string to_string() const;
+    std::string to_string() const;
 
-        bool hit(const Ray&, float&, float&) const;
+    bool hit(const Ray&, float&, float&) const;
 
-        void extend(Geometry*);
-        void extend(const BBox&);
+    bool contains(const Point3D&);
 
-        bool contains(const Point3D&);
-
-        bool overlaps(Geometry*);
-        bool overlaps(const BBox&);
+    bool overlaps(const Geometry*) const;
+    bool overlaps(const BBox&) const;
 };
 
 #define MAX(X, Y) (((X) > (Y)) ? (X) : (Y))

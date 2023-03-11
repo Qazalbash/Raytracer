@@ -14,10 +14,10 @@
  *
  */
 World::World() {
-        vplane      = ViewPlane();
-        bg_color    = RGBColor();
-        camera_ptr  = nullptr;
-        sampler_ptr = nullptr;
+    vplane      = ViewPlane();
+    bg_color    = RGBColor();
+    camera_ptr  = nullptr;
+    sampler_ptr = nullptr;
 }
 
 /**
@@ -25,9 +25,9 @@ World::World() {
  *
  */
 World::~World() {
-        delete camera_ptr;
-        delete sampler_ptr;
-        for (auto &object : geometry) delete object;
+    delete camera_ptr;
+    delete sampler_ptr;
+    for (auto &object : geometry) delete object;
 }
 
 /**
@@ -51,13 +51,13 @@ void World::set_camera(Camera *c_ptr) { camera_ptr = c_ptr; }
  * @return ShadeInfo
  */
 ShadeInfo World::hit_objects(const Ray &ray) {
-        ShadeInfo sr(*this), sr_temp(*this);
-        float     tmin = kHugeValue, t;
+    ShadeInfo sr(*this), sr_temp(*this);
+    float     tmin = kHugeValue, t;
 
-        for (auto &object : geometry)
-                if (object->hit(ray, t, sr_temp) && (t < tmin)) {
-                        tmin = t;
-                        sr   = sr_temp;
-                }
-        return (sr);
+    for (auto &object : geometry)
+        if (object->hit(ray, t, sr_temp) && (t < tmin)) {
+            tmin = t;
+            sr   = sr_temp;
+        }
+    return (sr);
 }

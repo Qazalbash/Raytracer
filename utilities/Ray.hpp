@@ -11,23 +11,23 @@
 #include "Vector3D.hpp"
 
 class Ray {
-    public:
+public:
 
-        Point3D  o;
-        Vector3D d;
-        float    w;
+    Point3D  o;
+    Vector3D d;
+    float    w;
 
-    public:
+public:
 
-        Ray();
-        Ray(const Point3D &, const Vector3D &);
-        Ray(const Ray &) = default;
+    Ray();
+    Ray(const Point3D &, const Vector3D &);
+    Ray(const Ray &) = default;
 
-        Ray &operator=(const Ray &) = default;
+    Ray &operator=(const Ray &) = default;
 
-        ~Ray() = default;
+    ~Ray() = default;
 
-        std::string to_string() const;
+    std::string to_string() const;
 };
 
 #endif

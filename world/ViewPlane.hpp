@@ -14,23 +14,23 @@
 #include "../utilities/Vector3D.hpp"
 
 class ViewPlane {
-    public:
+public:
 
-        Point3D  top_left, bottom_right;
-        Vector3D normal;
-        int      hres, vres;
+    Point3D  top_left, bottom_right;
+    Vector3D normal;
+    size_t   hres, vres;
 
-        ViewPlane();
+    ViewPlane();
 
-        ViewPlane(const ViewPlane &)            = default;
-        ViewPlane &operator=(const ViewPlane &) = default;
+    ViewPlane(const ViewPlane &)            = default;
+    ViewPlane &operator=(const ViewPlane &) = default;
 
-        int  get_hres() const;
-        void set_hres(int);
-        int  get_vres() const;
-        void set_vres(int);
+    size_t get_hres() const;
+    void   set_hres(size_t);
+    size_t get_vres() const;
+    void   set_vres(size_t);
 
-        ~ViewPlane() = default;
+    ~ViewPlane() = default;
 };
 
 #endif

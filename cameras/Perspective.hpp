@@ -14,21 +14,21 @@
 class Vector3D;
 
 class Perspective : public Camera {
-    protected:
+protected:
 
-        Point3D pos;
+    Point3D pos;
 
-    public:
+public:
 
-        Perspective();
-        Perspective(float);
-        Perspective(float, float, float);
-        Perspective(const Point3D &);
+    Perspective();
+    Perspective(float);
+    Perspective(float, float, float);
+    Perspective(const Point3D &);
 
-        Perspective(const Perspective &);
-        Perspective &operator=(const Perspective &);
+    Perspective(const Perspective &);
+    Perspective &operator=(const Perspective &);
 
-        virtual Vector3D get_direction(const Point3D &) const;
+    virtual Vector3D get_direction(const Point3D &) const;
 };
 
 #endif

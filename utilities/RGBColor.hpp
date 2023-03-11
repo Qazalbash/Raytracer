@@ -13,34 +13,34 @@
 #include <string>
 
 class RGBColor {
-    public:
+public:
 
-        float r, g, b;
+    float r, g, b;
 
-    public:
+public:
 
-        RGBColor();
-        RGBColor(float);
-        RGBColor(float, float, float);
+    RGBColor();
+    RGBColor(float);
+    RGBColor(float, float, float);
 
-        ~RGBColor() = default;
+    ~RGBColor() = default;
 
-        RGBColor(const RGBColor &) = default;
+    RGBColor(const RGBColor &) = default;
 
-        std::string to_string() const;
+    std::string to_string() const;
 
-        RGBColor  operator+(const RGBColor &) const;
-        RGBColor &operator+=(const RGBColor &);
-        RGBColor  operator*(const float) const;
-        RGBColor  operator*(const RGBColor &) const;
-        RGBColor &operator*=(const float);
-        RGBColor  operator/(const float) const;
-        RGBColor &operator/=(const float);
-        RGBColor &operator=(const RGBColor &) = default;
-        bool      operator==(const RGBColor &) const;
+    RGBColor  operator+(const RGBColor &) const;
+    RGBColor &operator+=(const RGBColor &);
+    RGBColor  operator*(const float) const;
+    RGBColor  operator*(const RGBColor &) const;
+    RGBColor &operator*=(const float);
+    RGBColor  operator/(const float) const;
+    RGBColor &operator/=(const float);
+    RGBColor &operator=(const RGBColor &) = default;
+    bool      operator==(const RGBColor &) const;
 
-        RGBColor powc(float) const;
-        float    average() const;
+    RGBColor powc(float) const;
+    float    average() const;
 };
 
 RGBColor operator*(const float, const RGBColor &);

@@ -6,7 +6,7 @@
  * @brief Construct a new RGBColor::RGBColor object
  *
  */
-RGBColor::RGBColor() : r(0.0f), g(0.0f), b(0.0f) {}
+RGBColor::RGBColor() : r(0.f), g(0.f), b(0.f) {}
 
 /**
  * @brief Construct a new RGBColor::RGBColor object
@@ -30,8 +30,7 @@ RGBColor::RGBColor(float _r, float _g, float _b) : r(_r), g(_g), b(_b) {}
  * @return std::string
  */
 std::string RGBColor::to_string() const {
-        return std::to_string(this->r) + " " + std::to_string(this->g) + " " +
-               std::to_string(this->b);
+    return std::to_string(this->r) + " " + std::to_string(this->g) + " " + std::to_string(this->b);
 }
 
 /**
@@ -40,9 +39,7 @@ std::string RGBColor::to_string() const {
  * @param c
  * @return RGBColor
  */
-RGBColor RGBColor::operator+(const RGBColor &c) const {
-        return RGBColor(this->r + c.r, this->g + c.g, this->b + c.b);
-}
+RGBColor RGBColor::operator+(const RGBColor &c) const { return RGBColor(this->r + c.r, this->g + c.g, this->b + c.b); }
 
 /**
  * @brief compund addition for RGBColor
@@ -51,10 +48,10 @@ RGBColor RGBColor::operator+(const RGBColor &c) const {
  * @return RGBColor&
  */
 RGBColor &RGBColor::operator+=(const RGBColor &c) {
-        this->r += c.r;
-        this->g += c.g;
-        this->b += c.b;
-        return *this;
+    this->r += c.r;
+    this->g += c.g;
+    this->b += c.b;
+    return *this;
 };
 
 /**
@@ -63,9 +60,7 @@ RGBColor &RGBColor::operator+=(const RGBColor &c) {
  * @param a
  * @return RGBColor
  */
-RGBColor RGBColor::operator*(const float a) const {
-        return RGBColor(this->r * a, this->g * a, this->b * a);
-}
+RGBColor RGBColor::operator*(const float a) const { return RGBColor(this->r * a, this->g * a, this->b * a); }
 
 /**
  * @brief compound multiplication for RGBColor and float
@@ -74,10 +69,10 @@ RGBColor RGBColor::operator*(const float a) const {
  * @return RGBColor&
  */
 RGBColor &RGBColor::operator*=(const float a) {
-        this->r *= a;
-        this->g *= a;
-        this->b *= a;
-        return *this;
+    this->r *= a;
+    this->g *= a;
+    this->b *= a;
+    return *this;
 };
 
 /**
@@ -86,9 +81,7 @@ RGBColor &RGBColor::operator*=(const float a) {
  * @param a
  * @return RGBColor
  */
-RGBColor RGBColor::operator/(const float a) const {
-        return RGBColor(this->r / a, this->g / a, this->b / a);
-}
+RGBColor RGBColor::operator/(const float a) const { return RGBColor(this->r / a, this->g / a, this->b / a); }
 
 /**
  * @brief compound division for RGBColor and float
@@ -97,10 +90,10 @@ RGBColor RGBColor::operator/(const float a) const {
  * @return RGBColor&
  */
 RGBColor &RGBColor::operator/=(const float a) {
-        this->r /= a;
-        this->g /= a;
-        this->b /= a;
-        return *this;
+    this->r /= a;
+    this->g /= a;
+    this->b /= a;
+    return *this;
 }
 
 /**
@@ -109,9 +102,7 @@ RGBColor &RGBColor::operator/=(const float a) {
  * @param c
  * @return RGBColor
  */
-RGBColor RGBColor::operator*(const RGBColor &c) const {
-        return RGBColor(this->r * c.r, this->g * c.g, this->b * c.b);
-}
+RGBColor RGBColor::operator*(const RGBColor &c) const { return RGBColor(this->r * c.r, this->g * c.g, this->b * c.b); }
 
 /**
  * @brief binary operator == for two RGBColor
@@ -120,9 +111,7 @@ RGBColor RGBColor::operator*(const RGBColor &c) const {
  * @return true
  * @return false
  */
-bool RGBColor::operator==(const RGBColor &c) const {
-        return (this->r == c.r && this->g == c.g && this->b == c.b);
-}
+bool RGBColor::operator==(const RGBColor &c) const { return (this->r == c.r && this->g == c.g && this->b == c.b); }
 
 /**
  * @brief powc function for RGBColor
@@ -130,9 +119,7 @@ bool RGBColor::operator==(const RGBColor &c) const {
  * @param p
  * @return RGBColor
  */
-RGBColor RGBColor::powc(float p) const {
-        return RGBColor(pow(this->r, p), pow(this->g, p), pow(this->b, p));
-}
+RGBColor RGBColor::powc(float p) const { return RGBColor(pow(this->r, p), pow(this->g, p), pow(this->b, p)); }
 
 /**
  * @brief average function for RGBColor

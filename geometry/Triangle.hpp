@@ -12,25 +12,25 @@
 #include "Geometry.hpp"
 
 class Triangle : public Geometry {
-    protected:
+protected:
 
-        Point3D v0, v1, v2;
+    Point3D v0, v1, v2;
 
-    public:
+public:
 
-        Triangle();
-        Triangle(const Point3D &, const Point3D &, const Point3D &);
-        Triangle(const Triangle &);
+    Triangle();
+    Triangle(const Point3D &, const Point3D &, const Point3D &);
+    Triangle(const Triangle &);
 
-        virtual ~Triangle() = default;
+    virtual ~Triangle() = default;
 
-        Triangle &operator=(const Triangle &);
+    Triangle &operator=(const Triangle &);
 
-        std::string to_string() const override;
+    std::string to_string() const override;
 
-        virtual bool hit(const Ray &, float &, ShadeInfo &) const override;
+    virtual bool hit(const Ray &, float &, ShadeInfo &) const override;
 
-        virtual BBox getBBox() const override;
+    virtual BBox getBBox() const override;
 };
 
 #endif

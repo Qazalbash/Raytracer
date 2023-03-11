@@ -14,30 +14,30 @@
 class Vector3D;
 
 class Point3D {
-    public:
+public:
 
-        float x, y, z;
+    float x, y, z;
 
-    public:
+public:
 
-        Point3D();
-        Point3D(float);
-        Point3D(float, float, float);
-        Point3D(const Point3D &) = default;
+    Point3D();
+    Point3D(float);
+    Point3D(float, float, float);
+    Point3D(const Point3D &) = default;
 
-        ~Point3D() = default;
+    ~Point3D() = default;
 
-        std::string to_string() const;
+    std::string to_string() const;
 
-        Point3D  operator-() const;
-        Vector3D operator-(const Point3D &) const;
-        Point3D  operator+(const Vector3D &) const;
-        Point3D  operator-(const Vector3D &) const;
-        Point3D  operator*(const float) const;
-        Point3D &operator=(const Point3D &) = default;
+    Point3D  operator-() const;
+    Vector3D operator-(const Point3D &) const;
+    Point3D  operator+(const Vector3D &) const;
+    Point3D  operator-(const Vector3D &) const;
+    Point3D  operator*(const float) const;
+    Point3D &operator=(const Point3D &) = default;
 
-        float d_squared(const Point3D &) const;
-        float distance(const Point3D &) const;
+    float d_squared(const Point3D &) const;
+    float distance(const Point3D &) const;
 };
 
 Point3D operator*(const float, const Point3D &);

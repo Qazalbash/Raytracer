@@ -26,26 +26,26 @@ class ShadeInfo;
 class Normal;
 
 class World {
-    public:
+public:
 
-        ViewPlane               vplane;
-        RGBColor                bg_color;
-        std::vector<Geometry *> geometry;
-        Camera                 *camera_ptr;
-        Sampler                *sampler_ptr;
+    ViewPlane               vplane;
+    RGBColor                bg_color;
+    std::vector<Geometry *> geometry;
+    Camera                 *camera_ptr;
+    Sampler                *sampler_ptr;
 
-    public:
+public:
 
-        World();
+    World();
 
-        ~World();
+    ~World();
 
-        void add_geometry(Geometry *);
-        void set_camera(Camera *);
+    void add_geometry(Geometry *);
+    void set_camera(Camera *);
 
-        void build();
+    void build();
 
-        ShadeInfo hit_objects(const Ray &);
+    ShadeInfo hit_objects(const Ray &);
 };
 
 #endif

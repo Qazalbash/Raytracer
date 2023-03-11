@@ -12,15 +12,15 @@
 #include "Sampler.hpp"
 
 class Simple : public Sampler {
-    public:
+public:
 
-        Simple() = default;
-        Simple(Camera *, ViewPlane *);
-        Simple(const Simple &);
+    Simple() = default;
+    Simple(Camera *, ViewPlane *);
+    Simple(const Simple &);
 
-        Simple &operator=(const Simple &);
+    Simple &operator=(const Simple &);
 
-        std::vector<Ray> get_rays(int, int) const override;
+    std::vector<Ray> get_rays(int, int) const override;
 };
 
 #endif

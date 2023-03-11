@@ -13,40 +13,40 @@
 class Point3D;
 
 class Vector3D {
-    public:
+public:
 
-        double x = 0, y = 0, z = 0;
+    float x = 0, y = 0, z = 0;
 
-    public:
+public:
 
-        Vector3D();
-        Vector3D(double);
-        Vector3D(double, double, double);
-        Vector3D(const Point3D &);
-        Vector3D(const Vector3D &) = default;
+    Vector3D();
+    Vector3D(float);
+    Vector3D(float, float, float);
+    Vector3D(const Point3D &);
+    Vector3D(const Vector3D &) = default;
 
-        ~Vector3D() = default;
+    ~Vector3D() = default;
 
-        std::string to_string() const;
+    std::string to_string() const;
 
-        Vector3D  operator-() const;
-        Vector3D  operator+(const Vector3D &) const;
-        Vector3D &operator+=(const Vector3D &);
-        Vector3D  operator-(const Vector3D &) const;
-        Vector3D &operator-=(const Vector3D &);
-        Vector3D &operator=(const Vector3D &) = default;
-        Vector3D &operator=(const Point3D &);
-        Vector3D  operator*(const double) const;
-        Vector3D  operator/(const double) const;
-        double    operator*(const Vector3D &) const;
-        Vector3D  operator^(const Vector3D &) const;
+    Vector3D  operator-() const;
+    Vector3D  operator+(const Vector3D &) const;
+    Vector3D &operator+=(const Vector3D &);
+    Vector3D  operator-(const Vector3D &) const;
+    Vector3D &operator-=(const Vector3D &);
+    Vector3D &operator=(const Vector3D &) = default;
+    Vector3D &operator=(const Point3D &);
+    Vector3D  operator*(const float) const;
+    Vector3D  operator/(const float) const;
+    float     operator*(const Vector3D &) const;
+    Vector3D  operator^(const Vector3D &) const;
 
-        void normalize();
+    void normalize();
 
-        double length() const;
-        double len_squared() const;
+    float length() const;
+    float len_squared() const;
 };
 
-Vector3D operator*(const double, const Vector3D &);
+Vector3D operator*(const float, const Vector3D &);
 
 #endif

@@ -12,21 +12,21 @@
 #include "Camera.hpp"
 
 class Parallel : public Camera {
-    protected:
+protected:
 
-        Vector3D dir;
+    Vector3D dir;
 
-    public:
+public:
 
-        Parallel();
-        Parallel(float);
-        Parallel(float, float, float);
-        Parallel(const Vector3D &);
+    Parallel();
+    Parallel(float);
+    Parallel(float, float, float);
+    Parallel(const Vector3D &);
 
-        Parallel(const Parallel &);
-        Parallel &operator=(const Parallel &);
+    Parallel(const Parallel &);
+    Parallel &operator=(const Parallel &);
 
-        virtual Vector3D get_direction(const Point3D &) const;
+    virtual Vector3D get_direction(const Point3D &) const;
 };
 
 #endif

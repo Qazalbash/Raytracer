@@ -21,26 +21,26 @@ class Ray;
 class ShadeInfo;
 
 class Geometry {
-    protected:
+protected:
 
-        Material *material_ptr;
+    Material *material_ptr;
 
-    public:
+public:
 
-        Geometry();
-        Geometry(const Geometry &)            = default;
-        Geometry &operator=(const Geometry &) = default;
+    Geometry();
+    Geometry(const Geometry &)            = default;
+    Geometry &operator=(const Geometry &) = default;
 
-        virtual ~Geometry() = default;
+    virtual ~Geometry() = default;
 
-        virtual std::string to_string() const = 0;
+    virtual std::string to_string() const = 0;
 
-        Material *get_material() const;
-        void      set_material(Material *);
+    Material *get_material() const;
+    void      set_material(Material *);
 
-        virtual bool hit(const Ray &, float &, ShadeInfo &) const = 0;
+    virtual bool hit(const Ray &, float &, ShadeInfo &) const = 0;
 
-        virtual BBox getBBox() const = 0;
+    virtual BBox getBBox() const = 0;
 };
 
 #endif

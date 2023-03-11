@@ -6,7 +6,7 @@
  * @brief Construct a new Sphere::Sphere object
  *
  */
-Sphere::Sphere() : c(Point3D()), r(0.0f) {}
+Sphere::Sphere() : c(Point3D()), r(0.f) {}
 
 /**
  * @brief Construct a new Sphere::Sphere object
@@ -30,9 +30,9 @@ Sphere::Sphere(const Sphere &object) : c(object.c), r(object.r) {}
  * @return Sphere&
  */
 Sphere &Sphere::operator=(const Sphere &rhs) {
-        c = rhs.c;
-        r = rhs.r;
-        return *this;
+    c = rhs.c;
+    r = rhs.r;
+    return *this;
 }
 
 /**
@@ -40,9 +40,7 @@ Sphere &Sphere::operator=(const Sphere &rhs) {
  *
  * @return std::string
  */
-std::string Sphere::to_string() const {
-        return "Sphere { c: " + c.to_string() + ", r: " + std::to_string(r) + " }";
-}
+std::string Sphere::to_string() const { return "Sphere { c: " + c.to_string() + ", r: " + std::to_string(r) + " }"; }
 
 /**
  * @brief Checks if ray hitted the sphere
@@ -56,40 +54,42 @@ std::string Sphere::to_string() const {
  * @details book listing 3.5
  */
 bool Sphere::hit(const Ray &ray, float &tmin, ShadeInfo &sr) const {
-        Vector3D temp = ray.o - c;
-        double   a = ray.d * ray.d, b = 2.0 * temp * ray.d, c_ = temp * temp - r * r,
-               disc = b * b - 4.0 * a * c_;
+    const Vector3D temp = ray.o - c;
+    const double   a    = ray.d * ray.d;
+    const double   b    = 2.0 * temp * ray.d;
+    const double   c_   = temp * temp - r * r;
+    const double   disc = b * b - 4.0 * a * c_;
 
-        if (disc < 0.0) return false;
+    if (disc < 0.0) return false;
 
-        double e = sqrt(disc), invDenom = 0.5 / a,
-               t = -(b + e) * invDenom;  // smaller root
+    double e = sqrt(disc), invDenom = 0.5 / a,
+           t = -(b + e) * invDenom;  // smaller root
 
-        if (t > kEpsilon) {
-                tmin            = t;
-                sr.hit          = true;
-                sr.material_ptr = this->material_ptr;
-                sr.ray          = ray;
-                sr.hit_point    = ray.o + ray.d * tmin;
-                sr.normal       = sr.hit_point - this->c;
-                sr.normal.normalize();
-                sr.t = tmin;
-                return true;
-        }
-        t = (e - b) * invDenom;  // larger root
-        if (t > kEpsilon) {
-                tmin            = t;
-                sr.hit          = true;
-                sr.material_ptr = this->material_ptr;
-                sr.ray          = ray;
-                sr.hit_point    = ray.o + ray.d * tmin;
-                sr.normal       = sr.hit_point - this->c;
-                sr.normal.normalize();
-                sr.t = tmin;
-                return true;
-        }
+    if (t > kEpsilon) {
+        tmin            = t;
+        sr.hit          = true;
+        sr.material_ptr = this->material_ptr;
+        sr.ray          = ray;
+        sr.hit_point    = ray.o + ray.d * tmin;
+        sr.normal       = sr.hit_point - this->c;
+        sr.normal.normalize();
+        sr.t = tmin;
+        return true;
+    }
+    t = (e - b) * invDenom;  // larger root
+    if (t > kEpsilon) {
+        tmin            = t;
+        sr.hit          = true;
+        sr.material_ptr = this->material_ptr;
+        sr.ray          = ray;
+        sr.hit_point    = ray.o + ray.d * tmin;
+        sr.normal       = sr.hit_point - this->c;
+        sr.normal.normalize();
+        sr.t = tmin;
+        return true;
+    }
 
-        return false;
+    return false;
 }
 
 /**

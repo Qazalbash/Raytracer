@@ -16,21 +16,21 @@
 #include "Material.hpp"
 
 class Cosine : public Material {
-    protected:
+protected:
 
-        RGBColor color;
+    RGBColor color;
 
-    public:
+public:
 
-        Cosine();
-        Cosine(float);
-        Cosine(float, float, float);
-        Cosine(const RGBColor &);
+    Cosine();
+    Cosine(float);
+    Cosine(float, float, float);
+    Cosine(const RGBColor &);
 
-        Cosine(const Cosine &);
-        Cosine &operator=(const Cosine &);
+    Cosine(const Cosine &);
+    Cosine &operator=(const Cosine &);
 
-        virtual RGBColor shade(const ShadeInfo &) const override;
+    virtual RGBColor shade(const ShadeInfo &) const override;
 };
 
 #endif

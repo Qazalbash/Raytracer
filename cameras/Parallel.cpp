@@ -14,8 +14,8 @@ Parallel::Parallel() : dir(Vector3D(0.0f, 0.0f, -1.0f)) {}
  * @param c
  */
 Parallel::Parallel(float c) {
-        this->dir = Vector3D(c);
-        dir.normalize();
+    this->dir = Vector3D(c);
+    dir.normalize();
 }
 
 /**
@@ -27,8 +27,8 @@ Parallel::Parallel(float c) {
  * @param z
  */
 Parallel::Parallel(float x, float y, float z) {
-        this->dir = Vector3D(x, y, z);
-        dir.normalize();
+    this->dir = Vector3D(x, y, z);
+    dir.normalize();
 }
 
 /**
@@ -37,8 +37,8 @@ Parallel::Parallel(float x, float y, float z) {
  * @param d
  */
 Parallel::Parallel(const Vector3D &d) {
-        this->dir = d;
-        dir.normalize();
+    this->dir = d;
+    dir.normalize();
 }
 
 /**
@@ -56,8 +56,8 @@ Parallel::Parallel(const Parallel &camera) : dir(camera.dir) {}
  * @return Parallel&
  */
 Parallel &Parallel::operator=(const Parallel &other) {
-        this->dir = other.dir;
-        return *this;
+    this->dir = other.dir;
+    return *this;
 }
 
 /**

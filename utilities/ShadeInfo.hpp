@@ -19,23 +19,23 @@ class Material;
 class World;
 
 class ShadeInfo {
-    public:
+public:
 
-        bool         hit;
-        Material    *material_ptr;
-        Point3D      hit_point;
-        Vector3D     normal;
-        Ray          ray;
-        int          depth;
-        float        t;
-        const World *w;
+    bool         hit;
+    Material    *material_ptr;
+    Point3D      hit_point;
+    Vector3D     normal;
+    Ray          ray;
+    int          depth;
+    float        t;
+    const World *w;
 
-    public:
+public:
 
-        ShadeInfo(const World &);
-        ShadeInfo(const ShadeInfo &) = default;
+    ShadeInfo(const World &);
+    ShadeInfo(const ShadeInfo &) = default;
 
-        ~ShadeInfo() = default;
+    ~ShadeInfo() = default;
 };
 
 #endif
